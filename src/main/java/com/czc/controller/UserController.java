@@ -45,6 +45,7 @@ public class UserController {
         }
 
         //2. do register
+        // testgit
         user.setState(0);
         user.setUid(UUIDUtils.getId());
         user.setHeadimg("/img/icon.jpg");
