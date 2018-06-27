@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--定义日志输出到控制台的规则-->
+    <appender name="consolelog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d -%logger{36}- %msg%n
+            </pattern>
+        </layout>
+    </appender>
+    <!--定义日志输出到文件中的规则-->
+    <appender name="myappender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>
+                %d -%logger{36}- %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略:每天输出一个文件-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>D:/growth.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="consolelog" />
+        <appender-ref ref="myappender" />
+    </root>
+</configuration>
